@@ -9,6 +9,49 @@ document.querySelector('.mobile-menu').addEventListener('click', function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const menuIcon = document.querySelector('.menu-icon');
+    const navMenu = document.querySelector('nav ul');
+  
+    menuIcon.addEventListener('click', function () {
+      navMenu.classList.toggle('show-menu');
+    });
+  });
+  
+  
+  
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const seeMoreBtn = document.getElementById('see-more-btn');
+    const seeLessBtn = document.getElementById('see-less-btn');
+    const additionalItems = document.querySelectorAll('.product-item.hidden');
+
+    seeMoreBtn.addEventListener('click', function () {
+        additionalItems.forEach(item => item.classList.remove('hidden'));
+        seeMoreBtn.style.display = 'none';
+        seeLessBtn.style.display = 'inline-block';
+    });
+
+    seeLessBtn.addEventListener('click', function () {
+        additionalItems.forEach(item => item.classList.add('hidden'));
+        seeMoreBtn.style.display = 'inline-block';
+        seeLessBtn.style.display = 'none';
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (function ($) {
     "use strict";
@@ -109,37 +152,6 @@ document.querySelector('.mobile-menu').addEventListener('click', function() {
 
 
 // JavaScript for the "See More" and "See Less" functionality
-
-document.addEventListener('DOMContentLoaded', function () {
-    const seeMoreBtn = document.getElementById('see-more-btn');
-    const seeLessBtn = document.getElementById('see-less-btn');
-    const hiddenItems = document.querySelectorAll('.product-item.hidden');
-
-    seeMoreBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        hiddenItems.forEach(item => {
-            item.classList.remove('hidden');
-            item.style.visibility = 'visible';
-            item.style.opacity = 1;
-        });
-        seeMoreBtn.classList.add('hidden');
-        seeLessBtn.classList.remove('hidden');
-    });
-
-    seeLessBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        hiddenItems.forEach(item => {
-            item.style.opacity = 0;
-            setTimeout(() => {
-                item.classList.add('hidden');
-                item.style.visibility = 'hidden';
-            }, 300);
-        });
-        seeMoreBtn.classList.remove('hidden');
-        seeLessBtn.classList.add('hidden');
-    });
-});
-
 
 
 // Testimonials carousel

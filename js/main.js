@@ -1,3 +1,91 @@
+document.querySelector('.order-now').addEventListener('click', function () {
+    alert('Order functionality coming soon!');
+});
+document.querySelector('.order-process').addEventListener('click', function() {
+        alert('Order Process button clicked!');
+    });
+
+document.querySelector('.delivery-button').addEventListener('click', function() {
+        alert('Thank you for choosing us!');
+    });
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const seeMoreBtn = document.getElementById('see-more-btn');
+        const seeLessBtn = document.querySelector('.see-less-btn');
+        const additionalItems = document.querySelector('.additional-items');
+    
+        // Function to show additional items
+        const showMoreItems = () => {
+            additionalItems.style.display = "grid"; // Show the hidden items as a grid
+            seeMoreBtn.style.display = "none"; // Hide the "See More" button
+            seeLessBtn.style.display = "block"; // Show the "See Less" button
+        };
+    
+        // Function to hide additional items
+        const hideMoreItems = () => {
+            additionalItems.style.display = "none"; // Hide the hidden items
+            seeMoreBtn.style.display = "inline-block"; // Show the "See More" button
+            seeLessBtn.style.display = "none"; // Hide the "See Less" button
+        };
+    
+        // Event listener for "See More" button
+        seeMoreBtn.addEventListener("click", showMoreItems);
+    
+        // Event listener for "See Less" button
+        seeLessBtn.addEventListener("click", hideMoreItems);
+    
+        // Initial state setup
+        hideMoreItems(); // Hide additional items and see less button by default
+    });
+    
+
+    
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const orderButtons = document.querySelectorAll('.order-btn'); // Select all order buttons
+    
+        orderButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Retrieve product details from data attributes
+                const productName = this.getAttribute('data-name');
+                const productPrice = this.getAttribute('data-price');
+                const productImg = this.getAttribute('data-img');
+    
+                // Create a product object
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    img: productImg
+                };
+    
+                // Retrieve existing cart from local storage or initialize a new one
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                // Add the product to the cart
+                cart.push(product);
+    
+                // Save the updated cart back to local storage
+                localStorage.setItem('cart', JSON.stringify(cart));
+    
+                // Display a success message
+                alert('Successfully added to cart!');
+            });
+        });
+    });
+    
+
+
+
+
+
+
+
+
+
+
+
 document.querySelector('.mobile-menu').addEventListener('click', function() {
     const navLinks = document.querySelector('.nav-links');
     if (navLinks.style.display === 'flex') {
@@ -20,39 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
   
   
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const seeMoreBtn = document.getElementById('see-more-btn');
-    const seeLessBtn = document.getElementById('see-less-btn');
-    const additionalItems = document.querySelectorAll('.product-item.hidden');
-
-    seeMoreBtn.addEventListener('click', function () {
-        additionalItems.forEach(item => item.classList.remove('hidden'));
-        seeMoreBtn.style.display = 'none';
-        seeLessBtn.style.display = 'inline-block';
-    });
-
-    seeLessBtn.addEventListener('click', function () {
-        additionalItems.forEach(item => item.classList.add('hidden'));
-        seeMoreBtn.style.display = 'inline-block';
-        seeLessBtn.style.display = 'none';
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (function ($) {
     "use strict";
 
@@ -186,5 +241,25 @@ $(".testimonial-carousel").owlCarousel({
 
 
 
+document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-//header
+    // Get the email input value from the form
+    const email = document.querySelector('#newsletter-form input[type="email"]').value;
+
+    // Alert with the subscribed email (for demonstration purposes)
+    alert(`Subscribed with: ${email}`);
+    
+    // Save the email to local storage
+    localStorage.setItem('subscriberEmail', email);
+
+    // Display the success message by removing the 'hidden' class
+    const successMessage = document.getElementById('success-message');
+    successMessage.classList.remove('hidden');
+
+    // Optionally, clear the input field after submission
+    document.querySelector('#newsletter-form input[type="email"]').value = '';
+});
+
+
+

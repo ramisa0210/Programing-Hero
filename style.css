@@ -210,7 +210,7 @@ nav ul li a {
 }
 
 .delivery-button {
-    background-color: #fda863;
+    background-color: #fe7e16;
     border: none;
     padding: 5px 10px;
     border-radius: 20px;
@@ -251,6 +251,8 @@ nav ul li a {
     color: #fe7e16;
 }
 
+
+
 .image-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -277,7 +279,7 @@ nav ul li a {
 }
 
 .image-section .item p {
-    color: #0e0d0d;
+    color: #030303;
     margin: 5px 0;
 }
 
@@ -334,6 +336,100 @@ nav ul li a {
     }
 }
 
+
+
+/* General Styles */
+.info-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.info-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.info-item {
+    text-align: center;
+    flex: 1 1 200px; /* Allow flex items to shrink and grow */
+    margin: 10px; /* Add margin for spacing */
+}
+
+.info-item i {
+    font-size: 2rem;
+    color: #f57f1f;
+    margin-bottom: 10px;
+}
+
+.info-item h4 {
+    font-size: 1.25rem;
+    color: #333333;
+    margin: 5px 0;
+}
+
+.info-item p {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.separator {
+    height: 60px;
+    width: 1px;
+    background-color: #b4b2b2;
+    margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .info-box {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center align items vertically */
+    }
+
+    .separator {
+        display: none; /* Hide separator on small screens */
+    }
+
+    .info-item {
+        flex: 1 1 100%; /* Full width for each item on smaller screens */
+    }
+
+    .info-item i {
+        font-size: 1.75rem; /* Adjust icon size */
+    }
+
+    .info-item h4 {
+        font-size: 1.15rem; /* Adjust heading size */
+    }
+
+    .info-item p {
+        font-size: 0.9rem; /* Adjust paragraph size */
+    }
+}
+
+@media (max-width: 480px) {
+    .info-section {
+        padding: 15px; /* Reduce padding on very small screens */
+    }
+
+    .info-item i {
+        font-size: 1.5rem; /* Further adjust icon size */
+    }
+
+    .info-item h4 {
+        font-size: 1rem; /* Further adjust heading size */
+    }
+
+    .info-item p {
+        font-size: 0.85rem; /* Further adjust paragraph size */
+    }
+}
 
 
 
@@ -465,8 +561,12 @@ nav ul li a {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-}
+    transition: background-color 0.3s;
 
+}
+.order-btn:hover {
+    background-color: #fd9c0a;
+}
 .item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -529,6 +629,7 @@ nav ul li a {
 
 
 
+/* Grid Layout for Products */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -536,6 +637,7 @@ nav ul li a {
     margin-top: 20px;
 }
 
+/* Styling for Each Product Item */
 .product-item {
     background-color: #fff;
     border-radius: 10px;
@@ -574,23 +676,23 @@ nav ul li a {
     margin-bottom: 10px;
 }
 
-.product-item .add-to-cart {
-    padding: 10px 20px;
-    background-color: #ff6200;
+.product-item .order-btn {
+    background: #f76809;
     color: #fff;
     border: none;
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.product-item .add-to-cart:hover {
-    background-color: #e55b00;
+.product-item .order-btn:hover {
+    background-color: #ff9800;
 }
 
+/* Button Styling for See More and See Less */
 #see-more-btn, #see-less-btn {
     display: inline-block;
-    
     margin: 30px auto;
     padding: 10px 20px;
     background-color: #f76809; 
@@ -600,98 +702,69 @@ nav ul li a {
     cursor: pointer;
     font-size: 1.2em;
     text-align: center;
-    text-decoration: none;
     transition: background-color 0.3s ease;
     max-width: 200px;
 }
 
-#see-more-btn:hover {
+#see-more-btn:hover, #see-less-btn:hover {
     background-color: #ffc107;
 }
 
+/* Hidden Elements */
 .hidden {
     display: none;
 }
 
-
-  .rating {
+/* Rating and Order Section Styling */
+.rating {
     padding: 0 15px;
     display: flex;
     align-items: center;
-  }
-  
-  .stars {
+}
+
+.stars {
     color: #ffc107;
     margin-right: 5px;
-  }
-  
-  .score {
+}
+
+.score {
     color: #666;
     font-size: 14px;
-  }
-  
-  .price-order {
+}
+
+.price-order {
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .price {
+}
+
+.price {
     font-weight: bold;
     font-size: 18px;
-  }
-  
-  .order-btn {
-    background: #f76809;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  
-  .item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
-  .additional-items {
-    display: none;
+}
+
+/* Additional Items Styling */
+.additional-items {
+    display: none; /* Initially hidden */
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-  }
-  
-  .see-less-btn {
-    display: none;
-    margin: 30px auto 0;
-    background: #ff9800;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    
-  }
-  /* Responsive Styles */
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .product-grid {
+    .product-grid,
+    .additional-items {
         grid-template-columns: repeat(2, 1fr); /* 2 items per row on tablets */
     }
 }
 
 @media (max-width: 480px) {
-    .product-grid {
+    .product-grid,
+    .additional-items {
         grid-template-columns: 1fr; /* 1 item per row on mobile devices */
     }
 }
- 
 
 
 
@@ -1186,7 +1259,7 @@ input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #f8f5f5;
+    border: 1px solid #b3aaaa;
     border-radius: 4px;
 }
 
@@ -1194,16 +1267,24 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #0b1844;
+    background-color: #03113b;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #faf8f6;
+    background-color: #080808;
 }
 
 .hidden {
     display: none;
+}
+
+
+
+
+/* When the message is shown, remove 'display: none' */
+.hidden {
+    color: #000;
 }
